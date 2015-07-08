@@ -1,4 +1,4 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header:$
 
@@ -8,7 +8,7 @@ EGIT_REPO_URI="https://gitlab.com/o9000/tint2.git"
 SRC_URI=""
 KEYWORDS="~amd64 ~x86"
 
-inherit autotools git-2
+inherit git-r3 cmake-utils eutils
 
 DESCRIPTION="A lightweight panel/taskbar"
 HOMEPAGE="https://gitlab.com/o9000/tint2"
