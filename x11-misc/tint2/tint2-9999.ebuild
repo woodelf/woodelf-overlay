@@ -15,7 +15,7 @@ HOMEPAGE="https://gitlab.com/o9000/tint2"
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="examples tint2conf"
+IUSE="battery examples tint2conf"
 
 COMMON_DEPEND="dev-libs/glib:2
 	x11-libs/cairo
@@ -33,17 +33,9 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
 	tint2conf? ( x11-misc/tintwizard )"
 
-src_prepare() {
-	if [[ ${PV} == "9999" ]] ; then
-		epatch "${FILESDIR}/gtk-icon-cache.sandbox.patch"
-	else
-		epatch "${FILESDIR}/battery_segfault.patch" # bug 343963
-	fi
-}
-
 src_configure() {
-	local mycmakeargs=( 
-		-DBATTERY=ON
+	local mycmakeargs=(
+		$(cmake-utils_use_enable battery BATTERY)
 		$(cmake-utils_use_enable examples EXAMPLES)
 		$(cmake-utils_use_enable tint2conf TINT2CONF)
 
