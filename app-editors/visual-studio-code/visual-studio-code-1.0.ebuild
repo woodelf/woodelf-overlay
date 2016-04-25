@@ -9,8 +9,8 @@ inherit eutils
 DESCRIPTION="Multiplatform Visual Studio Code from Microsoft"
 HOMEPAGE="https://code.visualstudio.com"
 SRC_URI="
-	x86? ( https://az764295.vo.msecnd.net/public/${PV}/VSCode-linux32.zip -> ${P}-x86.zip )
-	amd64? ( https://az764295.vo.msecnd.net/public/${PV}/VSCode-linux64.zip -> ${P}-amd64.zip )
+	x86? ( https://az764295.vo.msecnd.net/stable/fa6d0f03813dfb9df4589c30121e9fcffa8a8ec8/VSCode-linux-ia32-stable.zip -> ${P}-x86.zip )
+	amd64? ( https://az764295.vo.msecnd.net/stable/fa6d0f03813dfb9df4589c30121e9fcffa8a8ec8/VSCode-linux-x64-stable.zip -> ${P}-amd64.zip )
 	"
 RESTRICT="mirror"
 
@@ -40,12 +40,12 @@ fi
 src_install(){
 	insinto "/opt/${PN}"
 	doins -r *
-	dosym "/opt/${PN}/Code" "/usr/bin/visual-studio-code"
+	dosym "/opt/${PN}/code" "/usr/bin/visual-studio-code"
 	insinto "/usr/share/applications"
 	doins ${FILESDIR}/${PN}.desktop
 	insinto "/usr/share/pixmaps"
 	doins ${FILESDIR}/${PN}.png
-	fperms +x "/opt/${PN}/Code"
+	fperms +x "/opt/${PN}/code"
 	fperms +x "/opt/${PN}/libgcrypt.so.11"
 	fperms +x "/opt/${PN}/libnode.so"
 	fperms +x "/opt/${PN}/libnotify.so.4"
