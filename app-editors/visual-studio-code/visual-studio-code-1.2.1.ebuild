@@ -9,8 +9,8 @@ inherit eutils
 DESCRIPTION="Multiplatform Visual Studio Code from Microsoft"
 HOMEPAGE="https://code.visualstudio.com"
 SRC_URI="
-	x86? ( https://az764295.vo.msecnd.net/stable/c212f0908f3d29933317bbc3233568fbca7944b1/VSCode-linux-ia32-stable.zip -> ${P}-x86.zip )
-	amd64? ( https://az764295.vo.msecnd.net/stable/c212f0908f3d29933317bbc3233568fbca7944b1/VSCode-linux-x64-stable.zip -> ${P}-amd64.zip )
+	x86? ( https://az764295.vo.msecnd.net/stable/fe7f407b95b7f78405846188259504b34ef72761/VSCode-linux-ia32-stable.zip -> ${P}-x86.zip )
+	amd64? ( https://az764295.vo.msecnd.net/stable/fe7f407b95b7f78405846188259504b34ef72761/VSCode-linux-x64-stable.zip -> ${P}-amd64.zip )
 	"
 RESTRICT="mirror"
 
