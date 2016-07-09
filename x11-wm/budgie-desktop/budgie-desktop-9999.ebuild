@@ -1,6 +1,6 @@
 # Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 
@@ -26,8 +26,7 @@ LICENSE="GPL-3"
 SLOT="0"
 IUSE=""
 
-RDEPEND="
-	>=dev-lang/vala-0.28
+RDEPEND=">=dev-lang/vala-0.28
 	>=dev-libs/glib-2.44.0
 	>=dev-libs/gobject-introspection-common-1.44.0
 	>=dev-libs/libpeas-1.8.0
@@ -37,8 +36,7 @@ RDEPEND="
 	>=sys-power/upower-0.9.20[introspection]
 	>=x11-libs/gtk+-3.16.0:3
 	>=x11-libs/libwnck-3.14.0
-	>=x11-wm/mutter-3.18.0
-	"
+	>=x11-wm/mutter-3.18.0"
 
 if [[ ${PV} == "9999" ]] ; then
     RDEPEND="${RDEPEND}

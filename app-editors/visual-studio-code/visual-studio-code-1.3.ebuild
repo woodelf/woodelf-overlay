@@ -1,6 +1,6 @@
 # Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 
@@ -9,8 +9,8 @@ inherit eutils
 DESCRIPTION="Multiplatform Visual Studio Code from Microsoft"
 HOMEPAGE="https://code.visualstudio.com"
 SRC_URI="
-	x86? ( https://az764295.vo.msecnd.net/stable/fe7f407b95b7f78405846188259504b34ef72761/VSCode-linux-ia32-stable.zip -> ${P}-x86.zip )
-	amd64? ( https://az764295.vo.msecnd.net/stable/fe7f407b95b7f78405846188259504b34ef72761/VSCode-linux-x64-stable.zip -> ${P}-amd64.zip )
+	x86? ( https://az764295.vo.msecnd.net/stable/e724f269ded347b49fcf1657fc576399354e6703/VSCode-linux-ia32-stable.zip -> ${P}-x86.zip )
+	amd64? ( https://az764295.vo.msecnd.net/stable/e724f269ded347b49fcf1657fc576399354e6703/VSCode-linux-x64-stable.zip -> ${P}-amd64.zip )
 	"
 RESTRICT="mirror"
 
@@ -19,12 +19,10 @@ SLOT="0"
 KEYWORDS="~x86 ~amd64"
 IUSE=""
 
-DEPEND="
-	gnome-base/gconf
+DEPEND="gnome-base/gconf
 	>=media-libs/libpng-1.2.46
 	x11-libs/cairo
-	>=x11-libs/gtk+-2.24.8-r1:2
-	"
+	>=x11-libs/gtk+-2.24.8-r1:2"
 
 RDEPEND="${DEPEND}"
 

@@ -1,6 +1,6 @@
 # Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header:$
+# $Id$
 
 EAPI="5"
 
@@ -14,8 +14,7 @@ inherit font git-r3
 DESCRIPTION="Monospaced fonts pre-patched with Powerline symbols"
 HOMEPAGE="https://github.com/powerline/fonts"
 
-LICENSE="
-	anonymouspro? ( OFL-1.1 )
+LICENSE="anonymouspro? ( OFL-1.1 )
 	dejavusansmono? ( BitstreamVera )
 	droidsansmono? ( Apache-2.0 )
 	inconsolata? ( OFL )

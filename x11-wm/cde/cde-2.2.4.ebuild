@@ -1,21 +1,22 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
 EAPI=5
 
-EGIT_REPO_URI="git://git.code.sf.net/p/cdesktopenv/code"
+MY_PN="${PN}-src"
 
 DESCRIPTION="The Common Desktop Environment, the first UNIX desktop environment"
 HOMEPAGE="https://sourceforge.net/projects/cdesktopenv/"
-SRC_URI=""
-
-inherit git-2
+SRC_URI="http://sourceforge.net/projects/cdesktopenv/files/src/${MY_PN}-${PV}.tar.gz"
 
 LICENSE="LGPL-2"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64"
 IUSE=""
+
+# Yet not used.
+REQUIRED_LOCALES=( de_DE es_ES fr_FR it_IT )
 
 DEPEND="x11-libs/libXp
 	x11-libs/libXt
@@ -40,8 +41,6 @@ DEPEND="x11-libs/libXp
 	x11-misc/xbitmaps"
 RDEPEND="${DEPEND}"
 
-S="${WORKDIR}/${P}/${PN}"
-
 pkg_pretend() {
 	# Check system support of required locales.
 	for check_locale in de_DE es_ES fr_FR it_IT; do
@@ -53,30 +52,27 @@ pkg_pretend() {
 	[[ ${rpcbind_args} =~ -[adhlsw]*i[adhlsw]* ]] || die "to build CDE rpcbind should be runned in insecure mode (with -i option)"
 }
 
-src_unpack() {
-	EGIT_SOURCEDIR="${WORKDIR}/${P}"
-	git-2_src_unpack
-}
-
 src_prepare() {
+	cd ${S}
 	mkdir -p imports/x11/include || die "fail to update code tree"
 	cd imports/x11/include
 	ln -s /usr/include/X11 . || die "fail to create X11 includes symlink"
 }
 
 src_compile() {
+	cd ${S}
 	make World || die "fail to build the CDE"
 }
 
 src_install() {
 	default
 	# vanilla script seems to me incompatibe with portage
-	#cd ${S}/${PN}/admin/IntegTools/dbTools || die "fail to cd to admin directory"
+	#cd ${S}/admin/IntegTools/dbTools || die "fail to cd to admin directory"
 	#./installCDE -s ${S} || die "fail to install the CDE"
 }
 
 pkg_postinst() {
-	cd ${S}/${PN}/admin/IntegTools/post_install/linux || die "fail to cd to linux postinstall check directory"
+	cd ${S}/admin/IntegTools/post_install/linux || die "fail to cd to linux postinstall check directory"
 	./configRun -e || die "linux postinstall check failed"
 	einfo "This may terminate with inetd errors. These are harmless and can be ignored."
 

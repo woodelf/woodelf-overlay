@@ -1,6 +1,7 @@
 # Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v3
-# $Header: $
+# $Id$
+
 EAPI=5
 
 PYTHON_COMPAT=( python{3_3,3_4,3_5} )
@@ -43,8 +44,7 @@ RDEPEND="${DEPEND}
 	x11-themes/gnome-icon-theme-symbolic
 	x11-libs/libnotify
 	indicator? ( dev-libs/libappindicator:3 )
-	gnome-keyring? ( gnome-base/libgnome-keyring )
-	"
+	gnome-keyring? ( gnome-base/libgnome-keyring )"
 
 src_install() {
 	python_foreach_impl python_domodule ${PN}

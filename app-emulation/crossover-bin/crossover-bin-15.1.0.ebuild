@@ -1,6 +1,6 @@
 # Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header:$
+# $Id$
 
 EAPI=5
 PYTHON_COMPAT=( python2_7 )
@@ -18,8 +18,7 @@ KEYWORDS="-* ~amd64 ~x86"
 IUSE="+capi +cups doc +gphoto2 +gsm +jpeg +lcms +ldap +mp3 +nls +openal +opengl +png +scanner +ssl +v4l"
 RESTRICT="fetch test"
 QA_FLAGS_IGNORED="opt/cxoffice/.*"
-QA_PRESTRIPPED="
-		opt/cxoffice/lib/.*
+QA_PRESTRIPPED="opt/cxoffice/lib/.*
 		opt/cxoffice/bin/cxburner
 		opt/cxoffice/bin/cxntlm_auth
 		opt/cxoffice/bin/wineserver
@@ -27,17 +26,15 @@ QA_PRESTRIPPED="
 		opt/cxoffice/bin/wine-preloader
 		opt/cxoffice/bin/cxdiag
 		opt/cxoffice/bin/cxgettext
-		opt/cxoffice/bin/wineloader
-		"
+		opt/cxoffice/bin/wineloader"
+
 S="${WORKDIR}"
 
-DEPEND="
-	app-arch/unzip
+DEPEND="app-arch/unzip
 	dev-lang/perl
-	${PYTHON_DEPS}
-	"
-RDEPEND="
-	${DEPEND}
+	${PYTHON_DEPS}"
+
+RDEPEND="${DEPEND}
 	!prefix? ( sys-libs/glibc )
 	>=dev-python/pygtk-2.10[${PYTHON_USEDEP}]
 	dev-python/dbus-python[${PYTHON_USEDEP}]
@@ -76,8 +73,7 @@ RDEPEND="
 	x11-libs/libXi[abi_x86_32(-)]
 	x11-libs/libXrandr[abi_x86_32(-)]
 	x11-libs/libXxf86vm[abi_x86_32(-)]
-	x11-libs/libxcb[abi_x86_32(-)]
-	"
+	x11-libs/libxcb[abi_x86_32(-)]"
 
 pkg_nofetch() {
 	einfo "Please visit ${HOMEPAGE}"

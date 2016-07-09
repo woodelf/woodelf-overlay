@@ -7,15 +7,15 @@ EAPI=5
 inherit eutils
 
 DESCRIPTION="Tencent QQ for Crossover"
-HOMEPAGE="http://www.deepin.org"
-SRC_URI="http://packages.deepin.com/deepin/pool/non-free/d/deepinwine-qq/${PN}_${PV}deepin5_i386.deb"
+HOMEPAGE="https://www.deepin.org"
+SRC_URI="http://packages.deepin.com/deepin/pool/non-free/a/apps.com.qq.im/apps.com.qq.im_8.1.17255deepin7_i386.deb"
 
 LICENSE="Tencent"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-RDEPEND=">=app-emulation/crossover-bin-14.0"
+RDEPEND=">=app-emulation/crossover-bin-15.0"
 
 RESTRICT="mirror strip"
 

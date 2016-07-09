@@ -1,6 +1,6 @@
 # Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 
@@ -25,12 +25,14 @@ RDEPEND=">=dev-libs/glib-2.32:2
 	x11-libs/libX11
 	dev-libs/libdbusmenu
 	x11-libs/libwnck:3"
+
 DEPEND="${RDEPEND}
 	$(vala_depend)
 	dev-util/intltool
 	gnome-base/gnome-common
 	sys-devel/gettext
 	virtual/pkgconfig"
+
 DOCS=( AUTHORS COPYRIGHT )
 
 src_prepare() {
