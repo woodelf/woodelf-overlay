@@ -12,7 +12,7 @@ gentoo_version="1"
 #tuxonice_version="2015.10.30"
 #uksm_version=""
 
-aufs_kernel_version="4.6_p20160627"
+aufs_kernel_version="4.7_p20160801"
 cjktty_kernel_version="4.4"
 reiser4_kernel_version="4.6.0"
 #tuxonice_kernel_version="4.2.5"
