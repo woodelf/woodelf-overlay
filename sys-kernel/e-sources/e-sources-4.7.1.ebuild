@@ -14,7 +14,7 @@ gentoo_version="1"
 
 aufs_kernel_version="4.7_p20160801"
 cjktty_kernel_version="4.4"
-reiser4_kernel_version="4.6.0"
+reiser4_kernel_version="4.7.0"
 #tuxonice_kernel_version="4.2.5"
 #uksm_kernel_version=""
 

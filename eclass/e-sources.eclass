@@ -90,10 +90,10 @@ USE_ENABLE() {
 		cjktty)		cjktty_url="http://sourceforge.net/projects/cjktty"
 				CJKKMV="$(get_version_component_range 1-2 $cjktty_kernel_version)"
 				if [[ "${cjktty_kernel_version/$CJKKMV./}" = "0" ]]
-					then cjktty_patch="linux-${CJKKMV}-cjktty.diff"
-					else cjktty_patch="linux-${cjktty_kernel_version}-cjktty.diff"
+					then cjktty_patch="${CJKKMV}-utf8.diff"
+					else cjktty_patch="${cjktty_kernel_version}-utf8.diff"
 				fi
-				cjktty_src="https://github.com/NodeOS/cjktty-patch/blob/master/patches/linux-4.4-cjktty.diff"
+				cjktty_src="https://github.com/gentoo-zh/linux-cjktty/compare/${cjktty_patch}"
 				HOMEPAGE="${HOMEPAGE} ${cjktty_url}"
 				if [ "${OVERRIDE_CJKTTY_PATCHES}" = 1 ]; then
 					CJKTTY_PATCHES="${FILESDIR}/${KMV}/${cjktty_patch}:1"
@@ -104,7 +104,7 @@ USE_ENABLE() {
 					"
 					CJKTTY_PATCHES="${DISTDIR}/${cjktty_patch}:1"
 				fi
-			;;
+				;;
 
 		ck)		ck_url="http://ck.kolivas.org/patches"
 				if [[ "${KMMV}" < "4" || "${KMINOR}" < "2" ]]; then
