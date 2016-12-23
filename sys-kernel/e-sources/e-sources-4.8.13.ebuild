@@ -8,7 +8,7 @@ K_KDBUS_AVAILABLE="1"
 
 
 ck_version="1"
-gentoo_version="11"
+gentoo_version="14"
 #tuxonice_version="2015.10.30"
 #uksm_version=""
 
