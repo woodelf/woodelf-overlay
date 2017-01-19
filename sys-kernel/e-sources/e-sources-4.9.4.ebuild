@@ -7,7 +7,7 @@ K_DEBLOB_AVAILABLE="0"
 K_KDBUS_AVAILABLE="1"
 
 ck_version="1"
-gentoo_version="1"
+gentoo_version="5"
 #tuxonice_version="2015.10.30"
 #uksm_version=""
 
