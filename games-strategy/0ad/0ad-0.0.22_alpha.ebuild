@@ -49,10 +49,6 @@ DEPEND="${RDEPEND}
 
 S=${WORKDIR}/${MY_P}
 
-src_prepare() {
-	epatch "${FILESDIR}"/${P}-gentoo.patch
-}
-
 src_configure() {
 	local myconf=(
 		--with-system-nvtt
