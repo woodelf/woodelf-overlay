@@ -7,8 +7,8 @@ inherit eutils
 
 DESCRIPTION="Download Manager for Windows, Mac & Linux"
 HOMEPAGE="https://flareget.com/"
-SRC_URI="amd64?  ( https://flareget.com/downloads/files/flareget/debs/amd64/flareget_4.4-100_amd64.deb )
-	x86?    ( https://flareget.com/downloads/files/flareget/debs/i386/flareget_4.4-100_i386.deb )"
+SRC_URI="amd64?  ( https://flareget.com/downloads/files/flareget/debs/amd64/flareget_4.5-102_amd64.deb )
+	x86?    ( https://flareget.com/downloads/files/flareget/debs/i386/flareget_4.5-102_i386.deb )"
 
 LICENSE="as-is"
 SLOT="0"

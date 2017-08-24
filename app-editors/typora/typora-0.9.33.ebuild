@@ -8,8 +8,8 @@ inherit eutils
 DESCRIPTION="Typora — a minimal markdown reading & writing app"
 HOMEPAGE="https://typora.io"
 SRC_URI="
-	amd64? ( https://typora.io/linux/typora_0.9.29_amd64.deb )
-	x86? ( https://typora.io/linux/typora_0.9.29_i386.deb )"
+	amd64? ( https://typora.io/linux/typora_0.9.33_amd64.deb )
+	x86? ( https://typora.io/linux/typora_0.9.33_i386.deb )"
 
 LICENSE=""
 SLOT="0"
