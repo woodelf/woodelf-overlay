@@ -8,8 +8,8 @@ inherit eutils
 DESCRIPTION="Multiplatform Visual Studio Code from Microsoft"
 HOMEPAGE="https://code.visualstudio.com"
 SRC_URI="
-	amd64? ( https://vscode.cdn.azure.cn/stable/41abd21afdf7424c89319ee7cb0445cc6f376959/code-stable-code_1.15.1-1502903936_amd64.tar.gz -> ${P}-amd64.tar.gz )
-	x86? ( https://vscode.cdn.azure.cn/stable/41abd21afdf7424c89319ee7cb0445cc6f376959/code-stable-code_1.15.1-1502903950_i386.tar.gz -> ${P}-i386.tar.gz )"
+	amd64? ( https://vscode.cdn.azure.cn/stable/be377c0faf7574a59f84940f593a6849f12e4de7/code-stable-code_1.17.0-1507160143_amd64.tar.gz -> ${P}-amd64.tar.gz )
+	x86? ( https://vscode.cdn.azure.cn/stable/be377c0faf7574a59f84940f593a6849f12e4de7/code-stable-code_1.17.0-1507160151_i386.tar.gz -> ${P}-i386.tar.gz )"
 RESTRICT="mirror"
 
 LICENSE="Microsoft"
@@ -26,16 +26,16 @@ DEPEND="
 
 RDEPEND="${DEPEND}"
 
-ARCH="$(uname -m)"
-
-if [[ $ARCH == "x86_64" ]];then
-	S="${WORKDIR}/VSCode-linux-x64"
-else
-	S="${WORKDIR}/VSCode-linux-ia32"
-fi
-
+S="${WORKDIR}"
 
 src_install(){
+	ARCH="$(uname -m)"
+	if [[ $ARCH == "x86_64" ]];then
+		cd VSCode-linux-x64
+	else
+		cd VSCode-linux-ia32
+	fi
+
 	insinto "/opt/${PN}"
 	doins -r *
 	dosym "/opt/${PN}/code" "/usr/bin/visual-studio-code"

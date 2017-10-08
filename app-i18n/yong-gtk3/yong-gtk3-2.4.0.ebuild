@@ -25,6 +25,4 @@ S=$WORKDIR
 
 src_install() {
 	tar xvf data.tar.xz -C ${D}
-	chmod 755 ${D}/usr
-        chown -R root:root ${D}
 }
