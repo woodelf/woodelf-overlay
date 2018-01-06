@@ -9,7 +9,7 @@ DESCRIPTION="A lightweight secured SOCKS5 proxy for embedded devices and low end
 HOMEPAGE="https://github.com/shadowsocks/shadowsocks-libev"
 EGIT_REPO_URI="https://github.com/shadowsocks/shadowsocks-libev"
 EGIT_SUBMODULES=( libbloom libcork libipset )
-EGIT_COMMIT="69c41d9752fe37580ba1d6b9b3023aff28655f07"
+EGIT_COMMIT="cba94db423caa4c590fd679e722c983908bb35e3"
 
 LICENSE="GPL-3+"
 SLOT="0"

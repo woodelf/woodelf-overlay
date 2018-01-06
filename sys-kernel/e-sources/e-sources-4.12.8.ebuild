@@ -5,14 +5,14 @@ EAPI=5
 K_DEBLOB_AVAILABLE="0"
 K_KDBUS_AVAILABLE="1"
 
-ck_version="2"
-gentoo_version="9"
+ck_version="1"
+gentoo_version="13"
 #tuxonice_version="2015.10.30"
 #uksm_version=""
 
-aufs_kernel_version="4.11.7+_p20170703"
+aufs_kernel_version="4.14_p20171127"
 cjktty_kernel_version="4.4"
-reiser4_kernel_version="4.12.1"
+reiser4_kernel_version="4.14.1"
 #tuxonice_kernel_version="4.2.5"
 #uksm_kernel_version=""
 

@@ -20,7 +20,7 @@ DEPEND="app-admin/conky
 	app-arch/p7zip
 	>=dev-lang/vala-0.18
 	dev-libs/json-glib
-	dev-libs/libgee:0
+	dev-libs/libgee:0.8
 	media-gfx/imagemagick
 	net-misc/rsync
 	>=x11-libs/gtk+-3.0"
@@ -36,4 +36,12 @@ src_unpack() {
 src_install() {
 	cd ${WORKDIR}/${PN}-${PV}/src
 	emake DESTDIR="${D}" install
+}
+
+pkg_postinst() {
+	xdg_desktop_database_update
+}
+
+pkg_postrm() {
+	xdg_desktop_database_update
 }

@@ -5,23 +5,21 @@ EAPI=5
 
 inherit eutils
 
-DESCRIPTION="Windows API implementation - standard suite"
-HOMEPAGE="https://www.winehq.org"
-SRC_URI="http://packages.deepin.com/deepin/pool/non-free/d/${PN}/${PN}_1.9-44_all.deb"
+DESCRIPTION="Tencent QQ Client on Deepin Wine"
+COMMON_URI="http://packages.deepin.com/deepin/pool/non-free"
+HOMEPAGE="https://im.qq.com"
+SRC_URI="${COMMON_URI}/d/deepin.com.qq.im/deepin.com.qq.im_8.9.19983deepin18_i386.deb"
 
 LICENSE="Proprietary"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-DEPEND="app-emulation/deepin-wine-helper
+DEPEND="app-emulation/deepin-wine
+	app-emulation/deepin-wine-helper
 	app-emulation/deepin-fonts-wine
 	app-emulation/deepin-libwine
 	app-emulation/deepin-wine32
-	app-emulation/deepin-wine-uninstaller
-	
-	amd64? ( dev-libs/udis86[abi_x86_32] )
-	x86? ( dev-libs/udis86 )
-	"
+	app-emulation/deepin-wine-uninstaller"
 
 RDEPEND="${DEPEND}"
 

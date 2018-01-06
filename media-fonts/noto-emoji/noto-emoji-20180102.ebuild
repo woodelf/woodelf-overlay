@@ -6,7 +6,7 @@ EAPI=6
 inherit font
 
 MY_PN="NotoEmoji"
-MY_PV="v2017-05-18-cook-color-fix"
+MY_PV="v2018-01-02-flag-update"
 GITHUB_URI="https://raw.githubusercontent.com/googlei18n/noto-emoji/${MY_PV}"
 
 DESCRIPTION="Color and Black-and-White Noto Emoji fonts by Google"

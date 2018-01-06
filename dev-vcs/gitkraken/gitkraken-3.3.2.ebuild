@@ -3,7 +3,7 @@
 
 EAPI=5
 
-inherit eutils
+inherit eutils xdg-utils
 
 DESCRIPTION="The downright luxurious Git client, for Windows, Mac & Linux"
 HOMEPAGE="https://www.gitkraken.com"
@@ -32,11 +32,19 @@ src_install() {
 	insinto "/opt"
 	doins -r *
 	#chmod 755 ${D}/opt/GitKraken/gitkraken
-	dosym "/opt/GitKraken/gitkraken" "/usr/bin/gitkraken"
+	dosym "/opt/gitkraken/gitkraken" "/usr/bin/gitkraken"
 	insinto "/usr/share/applications"
-	fperms +x "/opt/GitKraken/gitkraken"
+	fperms +x "/opt/gitkraken/gitkraken"
 	doins ${FILESDIR}/${PN}.desktop
 	insinto "/usr/share/pixmaps"
 	doins ${FILESDIR}/${PN}.png
 	insinto "/usr/share/licenses/${PN}"
+}
+
+pkg_postinst() {
+	xdg_desktop_database_update
+}
+
+pkg_postrm() {
+	xdg_desktop_database_update
 }

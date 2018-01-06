@@ -5,9 +5,10 @@ EAPI=5
 
 inherit eutils
 
-DESCRIPTION="Deepin Wine Uninstaller Tool"
-HOMEPAGE="https://www.deepin.org"
-SRC_URI="http://packages.deepin.com/deepin/pool/non-free/d/${PN}/${PN}_0.1deepin2_i386.deb"
+DESCRIPTION="Windows API implementation - fonts"
+COMMON_URI="http://packages.deepin.com/deepin/pool/non-free"
+HOMEPAGE="https://www.winehq.org"
+SRC_URI="${COMMON_URI}/d/deepin-wine/${PN}_2.18-2_all.deb"
 
 LICENSE="Proprietary"
 SLOT="0"
