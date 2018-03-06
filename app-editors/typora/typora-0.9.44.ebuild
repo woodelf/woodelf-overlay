@@ -8,8 +8,8 @@ inherit eutils gnome2-utils xdg-utils
 DESCRIPTION="Typora — a minimal markdown reading & writing app"
 HOMEPAGE="https://typora.io"
 SRC_URI="
-	amd64? ( https://typora.io/linux/typora_0.9.41_amd64.deb )
-	x86? ( https://typora.io/linux/typora_0.9.41_i386.deb )"
+	amd64? ( https://typora.io/linux/typora_0.9.44_amd64.deb )
+	x86? ( https://typora.io/linux/typora_0.9.44_i386.deb )"
 
 LICENSE=""
 SLOT="0"

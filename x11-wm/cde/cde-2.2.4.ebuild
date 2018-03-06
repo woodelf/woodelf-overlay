@@ -14,9 +14,6 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE=""
 
-# Yet not used.
-REQUIRED_LOCALES=( de_DE es_ES fr_FR it_IT )
-
 DEPEND="x11-libs/libXp
 	x11-libs/libXt
 	x11-libs/libXmu
@@ -40,17 +37,6 @@ DEPEND="x11-libs/libXp
 	x11-misc/xbitmaps"
 RDEPEND="${DEPEND}"
 
-pkg_pretend() {
-	# Check system support of required locales.
-	for check_locale in de_DE es_ES fr_FR it_IT; do
-		LOCALE_STRING="${check_locale}.iso88591"
-		[[ $'\n'$(locale -a) =~ $'\n'${LOCALE_STRING}$'\n' ]] || die "LOCALE ${LOCALE_STRING} is required to build CDE"
-	done
-	# Check required services status and config.
-	rpcbind_args=$(cat /proc/$(pgrep rpcbind)/cmdline)
-	[[ ${rpcbind_args} =~ -[adhlsw]*i[adhlsw]* ]] || die "to build CDE rpcbind should be runned in insecure mode (with -i option)"
-}
-
 src_prepare() {
 	cd ${S}
 	mkdir -p imports/x11/include || die "fail to update code tree"
@@ -65,7 +51,7 @@ src_compile() {
 
 src_install() {
 	default
-	# vanilla script seems to me incompatibe with portage
+	# vanilla script seems to be incompatibe with portage
 	#cd ${S}/admin/IntegTools/dbTools || die "fail to cd to admin directory"
 	#./installCDE -s ${S} || die "fail to install the CDE"
 }
@@ -76,7 +62,7 @@ pkg_postinst() {
 	einfo "This may terminate with inetd errors. These are harmless and can be ignored."
 
 	# Not sure if it is really necessary, so commented quote:
-	#sudo chmod -R a+rwx /var/dt
+	#chmod -R a+rwx /var/dt
 
 	dodir /usr/spool/calendar || die "fail to create calendar spool directory"
 }

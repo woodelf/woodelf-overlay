@@ -1,0 +1,36 @@
+--- a/src/lib/libast/features/stdio	2018-01-07 10:23:00.869367639 +0800
++++ b/src/lib/libast/features/stdio	2018-01-07 10:23:37.853166339 +0800
+@@ -6,6 +6,8 @@
+ 	#define _FILE_DEFINED	1
+ 	#define _FILE_defined	1
+ 	#define _FILEDEFED	1
++	#define __FILE_defined  1
++	#define ____FILE_defined    1
+ 
+ 	#ifndef __FILE_TAG
+ 	#define __FILE_TAG	_sfio_s
+
+--- a/src/lib/libast/include/ast.h	2018-01-07 10:24:08.046794283 +0800
++++ b/src/lib/libast/include/ast.h	2018-01-07 10:26:26.934438105 +0800
+@@ -58,9 +58,21 @@
+ #ifndef	__FILE_typedef
+ #define __FILE_typedef	1
+ #endif
++#ifndef	_FILE_DEFINED
++#define _FILE_DEFINED   1
++#endif
++#ifndef	_FILE_defined
++#define _FILE_defined   1
++#endif
+ #ifndef _FILEDEFED
+ #define _FILEDEFED	1
+ #endif
++#ifndef __FILE_defined
++#define __FILE_defined  1
++#endif
++#ifndef ____FILE_defined
++#define ____FILE_defined  1
++#endif
+ #endif
+ 
+ /*

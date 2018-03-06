@@ -8,7 +8,7 @@ inherit eutils
 DESCRIPTION="Tencent TIM Client on Deepin Wine"
 COMMON_URI="http://packages.deepin.com/deepin/pool/non-free"
 HOMEPAGE="https://im.qq.com"
-SRC_URI="${COMMON_URI}/d/deepin.com.qq.office/deepin.com.qq.office_1.2.0deepin0_i386.deb"
+SRC_URI="${COMMON_URI}/d/deepin.com.qq.office/deepin.com.qq.office_2.0.0deepin1_i386.deb"
 
 LICENSE="Proprietary"
 SLOT="0"

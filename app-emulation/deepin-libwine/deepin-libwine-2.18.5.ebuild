@@ -8,7 +8,7 @@ inherit eutils
 DESCRIPTION="Windows API implementation - library"
 COMMON_URI="http://packages.deepin.com/deepin/pool/non-free"
 HOMEPAGE="https://www.winehq.org"
-SRC_URI="${COMMON_URI}/d/deepin-wine/${PN}_2.18-2_i386.deb"
+SRC_URI="${COMMON_URI}/d/deepin-wine/${PN}_2.18-5~rc6_i386.deb"
 
 LICENSE="Proprietary"
 SLOT="0"

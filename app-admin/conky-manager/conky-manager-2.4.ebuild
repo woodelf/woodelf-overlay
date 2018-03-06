@@ -3,7 +3,7 @@
 
 EAPI=2
 
-inherit bzr eutils
+inherit bzr eutils xdg-utils
 
 DESCRIPTION="A simple GUI for managing Conky config files"
 HOMEPAGE="https://launchpad.net/conky-manager"

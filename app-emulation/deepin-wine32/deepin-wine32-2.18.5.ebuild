@@ -8,7 +8,7 @@ inherit eutils
 DESCRIPTION="Windows API implementation - 32-bit binary loader"
 COMMON_URI="http://packages.deepin.com/deepin/pool/non-free"
 HOMEPAGE="https://www.deepin.org"
-SRC_URI="${COMMON_URI}/d/deepin-wine/${PN}_2.18-2_i386.deb"
+SRC_URI="${COMMON_URI}/d/deepin-wine/${PN}_2.18-5~rc6_i386.deb"
 
 LICENSE="Proprietary"
 SLOT="0"

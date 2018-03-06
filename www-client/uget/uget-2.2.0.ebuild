@@ -3,7 +3,7 @@
 
 EAPI=5
 
-inherit autotools eutils
+inherit autotools eutils gnome2-utils xdg-utils
 
 LANGUAGES="linguas_ar linguas_be linguas_bn_BD linguas_cs linguas_da linguas_de
 	linguas_es linguas_fr linguas_hu linguas_id linguas_it linguas_ka_GE linguas_pl
@@ -84,4 +84,9 @@ pkg_postinst() {
 		elog "xmlrpc. To use aria2 locally you have to emerge net-misc/aria2"
 		elog "with the xmlrpc USE enabled manually."
 		echo
+		gnome2_icon_cache_update
+}
+
+pkg_postrm() {
+	gnome2_icon_cache_update
 }
