@@ -37,4 +37,3 @@ pkg_postinst() {
 	elog "Additional information can be found in VCMI wiki:"
 	elog "http://wiki.vcmi.eu/index.php?title=Installation_on_Linux#Installing_Heroes_III_data_files"
 }
-
