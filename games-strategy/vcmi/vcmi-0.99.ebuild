@@ -12,7 +12,7 @@ SRC_URI="https://github.com/${PN}/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"
-IUSE="debug editor launcher +erm"
+IUSE="debug editor +launcher +erm"
 
 CDEPEND="
 	media-libs/libsdl2[video]
@@ -32,7 +32,6 @@ CDEPEND="
 		dev-qt/qtnetwork
 		dev-qt/qtwidgets
 	)
-	dev-libs/fuzzylite
 "
 
 DEPEND="
@@ -47,30 +46,36 @@ PDEPEND="
 	games-strategy/vcmi-data
 "
 
+src_prepare() {
+	cmake-utils_src_prepare
+	epatch_user
+}
+
 src_configure() {
-	local MY_DATADIR="${GAMES_DATADIR#/usr/}/${PN}"
-	local MY_GAMESLIBDIR=$(games_get_libdir)
-	local MY_LIBDIR=${MY_GAMESLIBDIR#/usr/}
-	local MY_BINDIR=${GAMES_BINDIR#/usr/}
-
-	use editor && ewarn "Editor seems to be broken. At least, it fails to build for me"
-	use debug || ewarn "Somewhy, buildsystem don't want to use cotire (compile time reducer) generated pch (precompiled header) with disabled debug, so, you will see the warnings on each target."
-
 	local mycmakeargs=(
-		-DDATA_DIR="${MY_DATADIR}"
-		-DLIB_DIR="${MY_LIBDIR}"
-		-DBIN_DIR="${MY_BINDIR}"
-		$(cmake-utils_use_enable erm ERM)
-		$(cmake-utils_use_enable editor EDITOR)
-		$(cmake-utils_use_enable launcher LAUNCHER)
+		-DBIN_DIR="${GAMES_BINDIR#/usr/}"
+		-DDATA_DIR="${GAMES_DATADIR#/usr/}"/"${PN}"
+		-DLIB_DIR="${GAMES_PREFIX#/usr/}"/$(get_libdir)/"${PN}"
+		-DENABLE_PCH=OFF # Do not works with NDEBUG set
+		-DENABLE_TEST=OFF
+		$(cmake-utils_use_enable editor)
+		$(cmake-utils_use_enable erm)
+		$(cmake-utils_use_enable launcher)
 	)
-	export CCACHE_SLOPPINESS="time_macros"
+
 	cmake-utils_src_configure
+}
+
+src_compile() {
+	cmake-utils_src_compile
 }
 
 src_install() {
 	cmake-utils_src_install
 	prepgamesdirs
+
+	dodir /etc/ld.so.conf.d/
+	echo "$(games_get_libdir)/${PN}" > ${ED}/etc/ld.so.conf.d/10${PN}.conf || die
 
 	elog "In order to play VCMI you must install:"
 	elog "- Heroes III: Shadow of Death or Complete edition;"
