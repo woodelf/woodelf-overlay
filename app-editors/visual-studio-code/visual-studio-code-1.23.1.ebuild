@@ -8,8 +8,8 @@ inherit eutils
 DESCRIPTION="Multiplatform Visual Studio Code from Microsoft"
 HOMEPAGE="https://code.visualstudio.com"
 SRC_URI="
-	amd64? ( https://vscode.cdn.azure.cn/stable/c63189deaa8e620f650cc28792b8f5f3363f2c5b/code-stable-code_1.20.0-1518023506_amd64.tar.gz -> ${P}-amd64.tar.gz )
-	x86? ( https://vscode.cdn.azure.cn/stable/c63189deaa8e620f650cc28792b8f5f3363f2c5b/code-stable-code_1.20.0-1518023590_i386.tar.gz -> ${P}-i386.tar.gz )"
+	amd64? ( https://vscode.cdn.azure.cn/stable/d0182c3417d225529c6d5ad24b7572815d0de9ac/code-stable-code_1.23.1-1525968403_amd64.tar.gz -> ${P}-amd64.tar.gz )
+	x86? ( https://vscode.cdn.azure.cn/stable/d0182c3417d225529c6d5ad24b7572815d0de9ac/code-stable-code_1.23.1-1525968397_i386.tar.gz -> ${P}-i386.tar.gz )"
 RESTRICT="mirror"
 
 LICENSE="Microsoft"
