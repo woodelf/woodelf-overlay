@@ -1,4 +1,4 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -11,6 +11,7 @@ DESCRIPTION="vim plugin: a code-completion engine for Vim"
 HOMEPAGE="http://valloric.github.io/YouCompleteMe/"
 SRC_URI=""
 EGIT_REPO_URI="https://github.com/Valloric/YouCompleteMe.git"
+EGIT_COMMIT="8e448920c9541811fc76f3d3de0941d3c8eee604"
 EGIT_SUBMODULES=(
 	'*'
 	'-third_party/OmniSharpServer'
@@ -56,7 +57,7 @@ DEPEND="
 	${COMMON_DEPEND}
 	rust? (
 		|| ( dev-lang/rust dev-lang/rust-bin )
-		|| ( dev-util/cargo dev-util/cargo-bin )
+		dev-util/cargo
 	)
 	test? (
 		>=dev-python/mock-1.0.1[${PYTHON_USEDEP}]
@@ -85,20 +86,14 @@ src_prepare() {
 	for third_party_module in pythonfutures; do
 		rm -r "${S}"/third_party/${third_party_module} || die "Failed to remove third party module ${third_party_module}"
 	done
-	# Argparse is included in python 2.7
-	for third_party_module in argparse bottle python-future requests waitress; do
-		rm -r "${S}"/third_party/ycmd/third_party/${third_party_module} || die "Failed to remove third party module ${third_party_module}"
-	done
 	rm -r "${S}"/third_party/ycmd/third_party/JediHTTP/vendor || die "Failed to remove third_party/ycmd/third_party/JediHTTP/vendor"
 	rm -r "${S}"/third_party/ycmd/cpp/BoostParts || die "Failed to remove bundled boost"
 }
 
 src_configure() {
-	einfo ${EPYTHON}
-
 	local mycmakeargs=(
-		-DUSE_CLANG_COMPLETER="$(usex clang)"
-		-DUSE_SYSTEM_LIBCLANG="$(usex clang)"
+		-DUSE_CLANG_COMPLETER="$(usex clang ON OFF)"
+		-DEXTERNAL_LIBCLANG_PATH="$(usex clang $(clang --print-file-name=libclang.so) '')"
 		-DUSE_SYSTEM_BOOST=ON
 		-DUSE_SYSTEM_GMOCK=ON
 		-DUSE_PYTHON2=OFF
@@ -133,24 +128,13 @@ src_test() {
 src_install() {
 	use doc && dodoc *.md third_party/ycmd/*.md
 	rm -r *.md *.sh *.py* *.ini *.yml COPYING.txt ci third_party/ycmd/cpp third_party/ycmd/ci third_party/ycmd/ycmd/tests third_party/ycmd/examples/samples || die
-	rm -r third_party/ycmd/{*.md,*.sh,*.yml,.coveragerc,.gitignore,.gitmodules,.travis.yml,build.*,*.txt,run_tests.*,*.ini,update*,Vagrantfile} || die
-	if use rust; then
-		rm -r third_party/ycmd/third_party/racerd/target/release/build/ || die
-		rm -r third_party/ycmd/third_party/racerd/target/release/deps/ || die
-		rm -r third_party/ycmd/third_party/racerd/target/release/.fingerprint/ || die
-	fi
+	rm -r third_party/ycmd/{*.md,*.sh,*.yml,.coveragerc,.gitignore,.gitmodules,.travis.yml,build.*,*.txt,run_tests.*,*.ini,update*} || die
 	find python -name *test* -exec rm -rf {} + || die
 	egit_clean
 	use clang && (rm third_party/ycmd/libclang.so* || die)
 
 	vim-plugin_src_install
 
-	if use rust; then
-		einfo "Fix permissions for racerd"
-		chmod a+x "${ED}"/usr/share/vim/vimfiles/third_party/ycmd/third_party/racerd/target/release/racerd
-	fi
-
 	python_optimize "${ED}"
 	python_fix_shebang "${ED}"
 }
-
