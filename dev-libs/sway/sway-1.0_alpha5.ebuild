@@ -35,7 +35,7 @@ DEPEND="${RDEPEND}
 	app-text/scdoc
 	virtual/pkgconfig"
 
-S="${WORKDIR}/sway-1.0-alpha.4"
+S="${WORKDIR}/sway-1.0-alpha.5"
 
 src_configure() {
 	local emesonargs=(

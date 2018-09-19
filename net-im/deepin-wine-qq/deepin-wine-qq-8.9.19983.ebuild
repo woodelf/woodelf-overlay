@@ -3,7 +3,7 @@
 
 EAPI=5
 
-inherit eutils
+inherit eutils gnome2-utils xdg-utils
 
 DESCRIPTION="Tencent QQ Client on Deepin Wine"
 COMMON_URI="http://packages.deepin.com/deepin/pool/non-free"
@@ -29,4 +29,14 @@ S=$WORKDIR
 
 src_install() {
 	tar xvf data.tar.xz -C ${D}
+}
+
+pkg_postinst() {
+	gnome2_icon_cache_update
+	xdg_desktop_database_update
+}
+
+pkg_postrm() {
+        gnome2_icon_cache_update
+        xdg_desktop_database_update
 }
