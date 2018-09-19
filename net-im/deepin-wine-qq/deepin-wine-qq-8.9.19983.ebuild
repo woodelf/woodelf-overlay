@@ -8,7 +8,7 @@ inherit eutils
 DESCRIPTION="Tencent QQ Client on Deepin Wine"
 COMMON_URI="http://packages.deepin.com/deepin/pool/non-free"
 HOMEPAGE="https://im.qq.com"
-SRC_URI="${COMMON_URI}/d/deepin.com.qq.im/deepin.com.qq.im_8.9.19983deepin20_i386.deb"
+SRC_URI="${COMMON_URI}/d/deepin.com.qq.im/deepin.com.qq.im_8.9.19983deepin23_i386.deb"
 
 LICENSE="Proprietary"
 SLOT="0"
