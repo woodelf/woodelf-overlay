@@ -15,7 +15,7 @@ RESTRICT="mirror"
 
 LICENSE="MIT"
 SLOT="1.7"
-KEYWORDS="-* ~amd64 ~x86"
+KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
 	dev-libs/atk

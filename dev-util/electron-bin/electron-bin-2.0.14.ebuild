@@ -10,11 +10,13 @@ HOMEPAGE="https://electron.atom.io"
 SRC_URI="
 	amd64? ( ${SRC_URI_BASE}/v${PV}/${MY_PN}-v${PV}-linux-x64.zip -> ${P}-x64.zip )
 	x86? ( ${SRC_URI_BASE}/v${PV}/${MY_PN}-v${PV}-linux-ia32.zip -> ${P}-ia32.zip )
+	arm? ( ${SRC_URI_BASE}/v${PV}/${MY_PN}-v${PV}-linux-arm.zip -> ${P}-arm.zip )
+	arm64? ( ${SRC_URI_BASE}/v${PV}/${MY_PN}-v${PV}-linux-arm64.zip -> ${P}-arm64.zip )
 "
 RESTRICT="mirror"
 
 LICENSE="MIT"
-SLOT="1.8"
+SLOT="2.0"
 KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
@@ -26,13 +28,14 @@ RDEPEND="
 	media-gfx/graphite2
 	media-libs/alsa-lib
 	media-libs/fontconfig:1.0
+	media-libs/libepoxy
 	media-libs/libpng
 	net-print/cups
 	sys-apps/dbus
 	virtual/opengl
 	x11-libs/cairo
 	x11-libs/gdk-pixbuf:2
-	x11-libs/gtk+:2
+	x11-libs/gtk+:3
 	x11-libs/libxcb
 	x11-libs/libXtst
 	x11-libs/pango
