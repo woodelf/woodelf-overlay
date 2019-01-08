@@ -1,7 +1,7 @@
 # Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="7"
+EAPI=7
 
 MY_PN="${PN/-bin}"
 SRC_URI_BASE="https://github.com/electron/electron/releases/download"
@@ -10,13 +10,11 @@ HOMEPAGE="https://electron.atom.io"
 SRC_URI="
 	amd64? ( ${SRC_URI_BASE}/v${PV}/${MY_PN}-v${PV}-linux-x64.zip -> ${P}-x64.zip )
 	x86? ( ${SRC_URI_BASE}/v${PV}/${MY_PN}-v${PV}-linux-ia32.zip -> ${P}-ia32.zip )
-	arm? ( ${SRC_URI_BASE}/v${PV}/${MY_PN}-v${PV}-linux-armv7l.zip -> ${P}-armv7l.zip )
-	arm64? ( ${SRC_URI_BASE}/v${PV}/${MY_PN}-v${PV}-linux-arm64.zip -> ${P}-arm64.zip )
 "
 RESTRICT="mirror"
 
 LICENSE="MIT"
-SLOT="3.0"
+SLOT="2.0"
 KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
@@ -43,18 +41,18 @@ RDEPEND="
 DEPEND="app-arch/unzip"
 
 S="${WORKDIR}"
-DIRPATH="opt/${MY_PN}-${SLOT}"
+MY_P="${MY_PN}-${SLOT}"
 
 QA_PRESTRIPPED="
-	${DIRPATH}/libffmpeg.so
-	${DIRPATH}/libnode.so
-	${DIRPATH}/electron
+	opt/${MY_P}/libffmpeg.so
+	opt/${MY_P}/libnode.so
+	opt/${MY_P}/electron
 "
 
 src_install() {
-	dodir "/${DIRPATH}"
-	# Note: intentionally not using "doins" so that we preserve +x bits
-	cp -R ./* "${ED}/${DIRPATH}" || die
+	dodir "/opt/${MY_P}"
+	# note: intentionally not using "doins" so that we preserve +x bits
+	cp -R ./* "${ED}/opt/${MY_P}" || die
 
-	dosym "../../${DIRPATH}/electron" "/usr/bin/electron-${SLOT}"
+	dosym "../../opt/${MY_P}/electron" "/usr/bin/${MY_P}"
 }

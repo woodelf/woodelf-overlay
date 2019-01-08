@@ -1,7 +1,7 @@
 # Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI="7"
 
 MY_PN="${PN/-bin}"
 SRC_URI_BASE="https://github.com/electron/electron/releases/download"
@@ -14,7 +14,7 @@ SRC_URI="
 RESTRICT="mirror"
 
 LICENSE="MIT"
-SLOT="1.8"
+SLOT="3.0"
 KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
@@ -26,13 +26,14 @@ RDEPEND="
 	media-gfx/graphite2
 	media-libs/alsa-lib
 	media-libs/fontconfig:1.0
+	media-libs/libepoxy
 	media-libs/libpng
 	net-print/cups
 	sys-apps/dbus
 	virtual/opengl
 	x11-libs/cairo
 	x11-libs/gdk-pixbuf:2
-	x11-libs/gtk+:2
+	x11-libs/gtk+:3
 	x11-libs/libxcb
 	x11-libs/libXtst
 	x11-libs/pango
@@ -40,18 +41,18 @@ RDEPEND="
 DEPEND="app-arch/unzip"
 
 S="${WORKDIR}"
-MY_P="${MY_PN}-${SLOT}"
+DIRPATH="opt/${MY_PN}-${SLOT}"
 
 QA_PRESTRIPPED="
-	opt/${MY_P}/libffmpeg.so
-	opt/${MY_P}/libnode.so
-	opt/${MY_P}/electron
+	${DIRPATH}/libffmpeg.so
+	${DIRPATH}/libnode.so
+	${DIRPATH}/electron
 "
 
 src_install() {
-	dodir "/opt/${MY_P}"
-	# note: intentionally not using "doins" so that we preserve +x bits
-	cp -R ./* "${ED}/opt/${MY_P}" || die
+	dodir "/${DIRPATH}"
+	# Note: intentionally not using "doins" so that we preserve +x bits
+	cp -R ./* "${ED}/${DIRPATH}" || die
 
-	dosym "../../opt/${MY_P}/electron" "/usr/bin/${MY_P}"
+	dosym "../../${DIRPATH}/electron" "/usr/bin/electron-${SLOT}"
 }
