@@ -5,7 +5,7 @@ EAPI=6
 
 inherit gnome2-utils
 
-ELECTRON_SLOT="3.0"
+ELECTRON_SLOT="4.1"
 DESCRIPTION="The intuitive, fast, and beautiful cross-platform Git client"
 HOMEPAGE="https://www.gitkraken.com"
 SRC_URI="https://release.gitkraken.com/linux/GitKraken-v${PV}.tar.gz -> ${P}.tar.gz"
