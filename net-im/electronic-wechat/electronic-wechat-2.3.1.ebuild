@@ -19,7 +19,7 @@ RESTRICT="mirror strip"
 DEPEND=""
 RDEPEND="dev-lang/python
 	dev-libs/libappindicator:3
-	dev-util/electron-bin:4.1
+	dev-util/electron-bin:5.0
 	dev-vcs/git
 	media-gfx/imagemagick
 	net-libs/nodejs
