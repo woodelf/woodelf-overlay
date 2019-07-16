@@ -40,7 +40,6 @@ src_install() {
 	doins ${FILESDIR}/${PN}.png
 	fperms +x "/opt/${PN}/Typora"
 	fperms +x "/opt/${PN}/libffmpeg.so"
-	fperms +x "/opt/${PN}/libnode.so"
 }
 
 pkg_postinst() {

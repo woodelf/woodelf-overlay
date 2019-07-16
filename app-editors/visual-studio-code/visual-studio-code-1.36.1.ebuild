@@ -28,6 +28,7 @@ RDEPEND="${DEPEND}"
 S="${WORKDIR}"
 
 src_install(){
+	cd VSCode-linux-x64
 	insinto "/opt/${PN}"
 	doins -r *
 	dosym "/opt/${PN}/code" "/usr/bin/visual-studio-code"
@@ -38,7 +39,6 @@ src_install(){
 	fperms +x "/opt/${PN}/code"
 	fperms +x "/opt/${PN}/bin/code"
 	fperms +x "/opt/${PN}/libffmpeg.so"
-	fperms +x "/opt/${PN}/libnode.so"
 	insinto "/usr/share/licenses/${PN}"
 	newins "resources/app/LICENSE.rtf" "LICENSE"
 }
