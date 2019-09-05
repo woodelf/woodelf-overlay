@@ -1,0 +1,69 @@
+diff --git a/glx/vndext.c b/glx/vndext.c
+index d7936467be5858f1c63d8d5cd4e4fec2a91fd4cc..20c0648ccfc9fc592a552725c0d0fef609db7362 100644
+--- a/glx/vndext.c
++++ b/glx/vndext.c
+@@ -139,8 +139,17 @@ GlxGetClientData(ClientPtr client)
+ {
+     GlxClientPriv *cl = xglvGetClientPrivate(client);
+     if (cl == NULL) {
+-        cl = calloc(1, sizeof(GlxClientPriv));
++        cl = calloc(1, sizeof(GlxClientPriv)
++                + screenInfo.numScreens * sizeof(GlxServerVendor *));
+         if (cl != NULL) {
++            int i;
++
++            cl->vendors = (GlxServerVendor **) (cl + 1);
++            for (i=0; i<screenInfo.numScreens; i++)
++            {
++                cl->vendors[i] = GlxGetVendorForScreen(NULL, screenInfo.screens[i]);
++            }
++
+             xglvSetClientPrivate(client, cl);
+         }
+     }
+diff --git a/glx/vndserver.h b/glx/vndserver.h
+index a175656ae7c22fcc0e4bf74bb9067312fb5ec14a..78246d212cea42f923808852159c973e3b64318d 100644
+--- a/glx/vndserver.h
++++ b/glx/vndserver.h
+@@ -57,6 +57,11 @@ typedef struct GlxContextTagInfoRec {
+ typedef struct GlxClientPrivRec {
+     GlxContextTagInfo *contextTags;
+     unsigned int contextTagCount;
++
++    /**
++     * The vendor handles for each screen.
++     */
++    GlxServerVendor **vendors;
+ } GlxClientPriv;
+ 
+ extern int GlxErrorBase;
+diff --git a/glx/vndservermapping.c b/glx/vndservermapping.c
+index fd3be92d95c28969291ca0c50a77d49a29007a8e..778656bb6eadcad43afe0e985c14a67eb44402a4 100644
+--- a/glx/vndservermapping.c
++++ b/glx/vndservermapping.c
+@@ -187,10 +187,21 @@ Bool GlxSetScreenVendor(ScreenPtr screen, GlxServerVendor *vendor)
+ 
+ GlxServerVendor *GlxGetVendorForScreen(ClientPtr client, ScreenPtr screen)
+ {
+-    GlxScreenPriv *priv = GlxGetScreen(screen);
+-    if (priv != NULL) {
+-        return priv->vendor;
++    // Note that the client won't be sending GPU screen numbers, so we don't
++    // need per-client mappings for them.
++    if (client != NULL && !screen->isGPU) {
++        GlxClientPriv *cl = GlxGetClientData(client);
++        if (cl != NULL) {
++            return cl->vendors[screen->myNum];
++        } else {
++            return NULL;
++        }
+     } else {
+-        return NULL;
++        GlxScreenPriv *priv = GlxGetScreen(screen);
++        if (priv != NULL) {
++            return priv->vendor;
++        } else {
++            return NULL;
++        }
+     }
+ }
