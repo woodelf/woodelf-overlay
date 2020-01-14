@@ -1,4 +1,4 @@
-# Copyright 1999-2019 Gentoo Foundation
+# Copyright 1999-2020 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -29,13 +29,12 @@ S=${WORKDIR}/${MY_P}
 
 src_configure() {
 	ECONF="--disable-more-warnings \
-	       --with-charon=/usr/libexec/ipsec/charon-nm"
+	--with-charon=/usr/libexec/ipsec/charon-nm"
 
 	econf ${ECONF}
 }
 
 src_install() {
 	emake DESTDIR="${D}" install || die "emake install failed"
-
 	dodoc NEWS || die "dodoc failed"
 }

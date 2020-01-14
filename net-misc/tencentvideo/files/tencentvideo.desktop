@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Tencent Video
+Type=Application
+Comment=Video Client for QQTV
+Exec=tencentvideo
+TryExec=tencentvideo
+Icon=tencentvideo
+Categories=Network;Multimedia;

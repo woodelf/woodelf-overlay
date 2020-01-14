@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2020 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=5
@@ -9,7 +9,7 @@ XORG_DOC=doc
 XORG_MULTILIB=yes
 inherit xorg-2
 
-EGIT_REPO_URI="https://anongit.freedesktop.org/git/xcb/util-errors.git"
+EGIT_REPO_URI="https://anongit.freedesktop.org/git/xcb/util-error:wqs.git"
 
 DESCRIPTION="X C-language Bindings sample implementations"
 HOMEPAGE="https://xcb.freedesktop.org/"
