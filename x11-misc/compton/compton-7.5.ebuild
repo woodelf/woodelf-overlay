@@ -46,6 +46,8 @@ DEPEND="${RDEPEND}
 	dev-libs/uthash"
 BDEPEND="doc? ( app-text/asciidoc )"
 
+S="${WORKDIR}/picom-${PV}"
+
 src_configure() {
 	# TODO: support FEATURES=test properly
 	local emesonargs=(
@@ -61,9 +63,8 @@ src_configure() {
 
 src_install() {
 	dodoc CONTRIBUTORS
-
 	docinto examples
-	dodoc compton-*-fshader-win.glsl compton.sample.conf
+	dodoc compton-*-fshader-win.glsl picom.sample.conf
 	if use dbus; then
 		dodoc -r dbus-examples/
 	fi
