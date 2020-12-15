@@ -1,9 +1,9 @@
-# Copyright 1999-2019 Gentoo Foundation
+# Copyright 1999-2020 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
-PYTHON_COMPAT=( python2_7 python3_{5,6,7} pypy{,3} )
+PYTHON_COMPAT=( python3_{8,9} pypy{,3} )
 
 # Since default phase functions defined by "distutils-r1" take absolute
 # precedence over those defined by "readme.gentoo-r1", inherit the latter later.
