@@ -1,7 +1,7 @@
-# Copyright 199-2020 Gentoo Foundation
+# Copyright 1999-2022 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 inherit autotools flag-o-matic
 
 DESCRIPTION="An extremely powerful ICCCM-compliant multiple virtual desktop window manager"
@@ -10,7 +10,7 @@ SRC_URI="https://github.com/fvwmorg/fvwm/releases/download/${PV}/${P}.tar.gz"
 
 LICENSE="GPL-2 FVWM"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~ia64 ppc ~ppc64 ~sparc ~x86 ~x86-fbsd"
+KEYWORDS="~amd64 ~x86"
 IUSE="bidi debug doc gtk2-perl iconv netpbm nls perl png readline rplay stroke svg tk truetype +vanilla xinerama lock"
 
 COMMON_DEPEND="
@@ -57,7 +57,6 @@ RDEPEND="${COMMON_DEPEND}
 	rplay? ( media-sound/rplay )
 	lock? ( x11-misc/xlockmore )
 	userland_GNU? ( sys-apps/debianutils )
-	!x86-fbsd? ( netpbm? ( media-libs/netpbm ) )
 "
 DEPEND="${COMMON_DEPEND}
 	virtual/pkgconfig
