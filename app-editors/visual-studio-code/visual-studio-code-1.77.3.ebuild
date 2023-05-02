@@ -8,9 +8,9 @@ inherit eutils
 DESCRIPTION="Multiplatform Visual Studio Code from Microsoft"
 HOMEPAGE="https://code.visualstudio.com"
 SRC_URI="
-	amd64? ( https://az764295.vo.msecnd.net/stable/97dec172d3256f8ca4bfb2143f3f76b503ca0534/code-stable-x64-1673285154.tar.gz -> ${P}-amd64.tar.gz )
-	arm? ( https://az764295.vo.msecnd.net/stable/97dec172d3256f8ca4bfb2143f3f76b503ca0534/code-stable-armhf-1673283506.tar.gz -> ${P}-armhf.tar.gz )
-	arm64? ( https://az764295.vo.msecnd.net/stable/97dec172d3256f8ca4bfb2143f3f76b503ca0534/code-stable-arm64-1673284434.tar.gz -> ${P}-arm64.tar.gz )"
+	amd64? ( https://az764295.vo.msecnd.net/stable/704ed70d4fd1c6bd6342c436f1ede30d1cff4710/code-stable-x64-1681293081.tar.gz -> ${P}-amd64.tar.gz )
+	arm? ( https://az764295.vo.msecnd.net/stable/704ed70d4fd1c6bd6342c436f1ede30d1cff4710/code-stable-armhf-1681292254.tar.gz -> ${P}-armhf.tar.gz )
+	arm64? ( https://az764295.vo.msecnd.net/stable/704ed70d4fd1c6bd6342c436f1ede30d1cff4710/code-stable-arm64-1681295764.tar.gz -> ${P}-arm64.tar.gz )"
 RESTRICT="mirror"
 
 LICENSE="Microsoft"

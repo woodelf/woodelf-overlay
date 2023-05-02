@@ -1,42 +1,41 @@
-# Copyright 1999-2022 Gentoo Foundation
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
+inherit unpacker xdg
 
-inherit eutils gnome2-utils xdg-utils
+DESCRIPTION="Tencent videos"
+HOMEPAGE="https://v.qq.com/download.html#linux"
 
-DESCRIPTION="Tencent Video is a video client for QQTV."
-HOMEPAGE="https://v.qq.com"
-SRC_URI="https://dldir1.qq.com/qqtv/linux/Tenvideo_universal_${PV}_amd64.deb -> ${P}.deb"
+KEYWORDS="amd64"
 
-LICENSE="Proprietary"
+SRC_URI="https://dldir1.qq.com/qqtv/linux/Tenvideo_universal_${PV}_amd64.deb"
+
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+#RESTRICT="strip mirror" # mirror as explained at bug #547372
+LICENSE="tenvideo-privacy"
+IUSE=""
 
-DEPEND="dev-libs/nss
-		x11-libs/gtk+:3"
+RDEPEND="
+	app-accessibility/at-spi2-atk
+	dev-libs/nss
+	media-libs/alsa-lib
+	x11-libs/gtk+:3
+	x11-libs/libXScrnSaver
+"
 
-RDEPEND="${DEPEND}"
+QA_PREBUILT="*"
 
-RESTRICT="mirror strip"
-
-S=$WORKDIR
+S="${WORKDIR}"
 
 src_install() {
-	tar xvf data.tar.xz -C ${D}
-	dosym "/opt/腾讯视频/TencentVideo" "/usr/bin/tencentvideo"
-	insinto "/usr/share/applications"
-	doins ${FILESDIR}/${PN}.desktop
-	insinto "/usr/share/pixmaps"
-	doins ${FILESDIR}/${PN}.png
-}
+	sed -i 's/腾讯视频/tenvideo/g' "${S}"/usr/share/applications/TencentVideo.desktop || die
+	insinto /usr/share
+	doins -r "${S}"/usr/share/{applications,icons}
 
-pkg_postinst() {
-	xdg_icon_cache_update
-	xdg_desktop_database_update
-}
+	insinto /opt/tenvideo
+	doins -r "${S}"/opt/腾讯视频/*
 
-pkg_postrm() {
-	xdg_icon_cache_update
-	xdg_desktop_database_update
+	fperms 0755 /opt/tenvideo/TencentVideo
+	fperms 4755 /opt/tenvideo/chrome-sandbox
 }

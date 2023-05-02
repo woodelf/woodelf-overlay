@@ -1,13 +1,13 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 LIBRETRO_REPO_NAME="libretro/${PN}"
-LIBRETRO_COMMIT_SHA="1daf54ede25763c3ae196303d9dc27610a2338a7"
+LIBRETRO_COMMIT_SHA="f2123bbeeb7bb139aa34ca59490988de686f9c0b"
 
-DESCRIPTION="Assets needed for RetroArch. Also contains the official branding."
-HOMEPAGE="https://github.com/libretro/retroarch-assets"
+DESCRIPTION="RetroArch joypad autoconfig files"
+HOMEPAGE="https://github.com/libretro/retroarch-joypad-autoconfig"
 
 if [[ ${PV} == *9999 ]]; then
 	SRC_URI=""
@@ -27,7 +27,5 @@ SLOT="0"
 
 src_prepare() {
 	default
-
 	sed -i -e "s/libretro/retroarch/g" Makefile || die
-	rm -r {glui,ozone,rgui,xmb} || die
 }

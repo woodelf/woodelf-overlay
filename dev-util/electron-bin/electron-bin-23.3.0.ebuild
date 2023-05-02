@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Foundation
+# Copyright 1999-2023 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -9,12 +9,11 @@ DESCRIPTION="Cross platform application development framework based on web techn
 HOMEPAGE="https://electron.atom.io"
 SRC_URI="
 	amd64? ( ${SRC_URI_BASE}/v${PV}/${MY_PN}-v${PV}-linux-x64.zip -> ${P}-x64.zip )
-	x86? ( ${SRC_URI_BASE}/v${PV}/${MY_PN}-v${PV}-linux-ia32.zip -> ${P}-ia32.zip )
 "
 RESTRICT="mirror"
 
 LICENSE="MIT"
-SLOT="17.0"
+SLOT="23.0"
 KEYWORDS="~amd64 ~x86"
 
 RDEPEND="

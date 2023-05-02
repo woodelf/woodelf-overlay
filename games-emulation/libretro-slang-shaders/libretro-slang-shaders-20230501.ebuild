@@ -1,9 +1,9 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-LIBRETRO_COMMIT_SHA="c5342749120f283732b2409f86c4f48712f9daca"
+LIBRETRO_COMMIT_SHA="d114c416864c85a8928abd2d7c42d8269f87fdce"
 
 DESCRIPTION="Vulkan GLSL RetroArch shaders"
 HOMEPAGE="https://github.com/libretro/slang-shaders"
