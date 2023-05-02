@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Foundation
+# Copyright 1999-2023 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -8,9 +8,9 @@ inherit eutils
 DESCRIPTION="Multiplatform Visual Studio Code from Microsoft"
 HOMEPAGE="https://code.visualstudio.com"
 SRC_URI="
-	amd64? ( https://az764295.vo.msecnd.net/stable/92d25e35d9bf1a6b16f7d0758f25d48ace11e5b9/code-stable-x64-1657183991.tar.gz -> ${P}-amd64.tar.gz )
-	arm? ( https://az764295.vo.msecnd.net/stable/92d25e35d9bf1a6b16f7d0758f25d48ace11e5b9/code-stable-armhf-1657180800.tar.gz -> ${P}-armhf.tar.gz )
-	arm64? ( https://az764295.vo.msecnd.net/stable/92d25e35d9bf1a6b16f7d0758f25d48ace11e5b9/code-stable-arm64-1657180738.tar.gz -> ${P}-arm64.tar.gz )"
+	amd64? ( https://az764295.vo.msecnd.net/stable/97dec172d3256f8ca4bfb2143f3f76b503ca0534/code-stable-x64-1673285154.tar.gz -> ${P}-amd64.tar.gz )
+	arm? ( https://az764295.vo.msecnd.net/stable/97dec172d3256f8ca4bfb2143f3f76b503ca0534/code-stable-armhf-1673283506.tar.gz -> ${P}-armhf.tar.gz )
+	arm64? ( https://az764295.vo.msecnd.net/stable/97dec172d3256f8ca4bfb2143f3f76b503ca0534/code-stable-arm64-1673284434.tar.gz -> ${P}-arm64.tar.gz )"
 RESTRICT="mirror"
 
 LICENSE="Microsoft"
