@@ -62,8 +62,8 @@ src_install() {
 	sed -i 's!/usr/share/icons/hicolor/512x512/apps/qq.png!qq!' usr/share/applications/qq.desktop || die
 	domenu usr/share/applications/qq.desktop
 	doicon -s 512 usr/share/icons/hicolor/512x512/apps/qq.png
-	insinto /usr/share/icons/hicolor/2x2/apps
-	doins usr/share/icons/hicolor/2x2/apps/qq.png
+	insinto /usr/share/icons/hicolor/512x512/apps
+	doins usr/share/icons/hicolor/512x512/apps/qq.png
 	gzip -d usr/share/doc/linuxqq/changelog.gz || die
 	dodoc usr/share/doc/linuxqq/changelog
 }
