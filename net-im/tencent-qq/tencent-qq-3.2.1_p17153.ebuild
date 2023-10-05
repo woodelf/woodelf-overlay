@@ -13,8 +13,8 @@ RESTRICT="strip"
 MY_PV=${PV/_p/-}
 
 SRC_URI="
-	amd64? ( https://dldir1.qq.com/qqfile/qq/QQNT/2355235c/linuxqq_${MY_PV}_amd64.deb )
-	arm64? ( https://dldir1.qq.com/qqfile/qq/QQNT/2355235c/linuxqq_${MY_PV}_arm64.deb )
+	amd64? ( https://dldir1.qq.com/qqfile/qq/QQNT/b69de82d/linuxqq_${MY_PV}_amd64.deb )
+	arm64? ( https://dldir1.qq.com/qqfile/qq/QQNT/b69de82d/linuxqq_${MY_PV}_arm64.deb )
 "
 
 SLOT="0"
