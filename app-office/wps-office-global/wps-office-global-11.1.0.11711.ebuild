@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -9,7 +9,7 @@ MY_PV="$(ver_cut 4)"
 
 DESCRIPTION="WPS Office is an office productivity suite, Here is the Global version"
 HOMEPAGE="https://www.wps.com/ http://wps-community.org/"
-SRC_URI="https://wdl1.pcfg.cache.wpscdn.com/wpsdl/wpsoffice/download/linux/11704/wps-office_${PV}.XA_amd64.deb -> ${P}.XA_amd64.deb"
+SRC_URI="https://wdl1.pcfg.cache.wpscdn.com/wpsdl/wpsoffice/download/linux/11711/wps-office_${PV}.XA_amd64.deb -> ${P}.XA_amd64.deb"
 
 SLOT="0"
 RESTRICT="strip mirror" # mirror as explained at bug #547372

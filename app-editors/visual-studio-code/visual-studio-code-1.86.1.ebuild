@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Foundation
+# Copyright 1999-2024 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -8,9 +8,9 @@ inherit desktop pax-utils xdg-utils
 DESCRIPTION="Multiplatform Visual Studio Code from Microsoft"
 HOMEPAGE="https://code.visualstudio.com"
 SRC_URI="
-	amd64? ( https://az764295.vo.msecnd.net/stable/e7e037083ff4455cf320e344325dacb480062c3c/code-stable-x64-1696349520.tar.gz -> ${P}-amd64.tar.gz )
-	arm? ( https://az764295.vo.msecnd.net/stable/e7e037083ff4455cf320e344325dacb480062c3c/code-stable-armhf-1696349533.tar.gz -> ${P}-armhf.tar.gz )
-	arm64? ( https://az764295.vo.msecnd.net/stable/e7e037083ff4455cf320e344325dacb480062c3c/code-stable-arm64-1696349537.tar.gz -> ${P}-arm64.tar.gz )"
+	amd64? ( https://vscode.download.prss.microsoft.com/dbazure/download/stable/31c37ee8f63491495ac49e43b8544550fbae4533/code-stable-x64-1707296849.tar.gz -> ${P}-amd64.tar.gz )
+	arm? ( https://vscode.download.prss.microsoft.com/dbazure/download/stable/31c37ee8f63491495ac49e43b8544550fbae4533/code-stable-armhf-1707296849.tar.gz -> ${P}-armhf.tar.gz )
+	arm64? ( https://vscode.download.prss.microsoft.com/dbazure/download/stable/31c37ee8f63491495ac49e43b8544550fbae4533/code-stable-arm64-1707296849.tar.gz -> ${P}-arm64.tar.gz )"
 RESTRICT="mirror"
 
 LICENSE="Microsoft"
